@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <?php
-    $tituloPagina = "Lançador de Dados - V1";
-    $saudacao = "Fala Curvelo!";
+
+    $tituloPagina = "Lançador de Dados - V2";
+    $titulo = "Lançador de Dados";
     $paragrafo1 = 
-        "Para ser cincero, nunca gostei muito da parte web. Em grande parte porque boa parte do trabalho <br/>
-        é estilização, layout de páginas, etc. Dito isso, até que estou gostando de mexer com PHP <br/>
-        (só não espere páginas com bons visuais vindos de mim, não tenho pasciência com CSS para isso :) ).";
+        "Teste sua sorte com os dados! Só não vale trapacear!";
     $textoAcao = ""
 ?>
 <html>
@@ -14,26 +13,40 @@
     <title><?php echo $tituloPagina ?></title>
 </head>
 <body>
-    <h1><?php echo $saudacao ?></h1>
+    <h1><?php echo $titulo ?></h1>
 
     <p><?php echo $paragrafo1 ?></p>
         
-    <form method="post">
+    <form method="get">
         <input type="submit" name="button1"
-                value="Let's go!"/>
+                value="Lançar os dados!"/>
     </form>
 
     <?php
+        $lancUsuario1 = 0;
+        $lancUsuario2 = 0;
+        $lancComp1 = 0;
+        $lancComp2 = 0;
+        $totUsuario = 0;
+        $totComp = 0;
 
-        if(isset($_POST['button1'])) {
-            $textoAcao = "<br/> <h3>Bora começar o lançador de dados!</h3>";
+        if(isset($_GET['button1'])) {
+            $lancUsuario1 = rand(1, 6);
+            $lancUsuario2 = rand(1, 6);
+            $lancComp1 = rand(1, 6);
+            $lancComp2 = rand(1, 6);
+            $totUsuario = $lancUsuario1 + $lancUsuario2;
+            $totComp = $lancComp1 + $lancComp2;
 
-            for ($x = 3; $x >= 0; $x--){
-                echo "<br/> Contagem: ".$x."<br>";
-            }
+            echo "<br>L1 U: ".$lancUsuario1."<br>";
+            echo "L2 U: ".$lancUsuario2."<br>";
+            echo "L1 C: ".$lancComp1."<br>";
+            echo "L2 C: ".$lancComp2."<br>";
+            echo "TT U: ".$totUsuario."<br>";
+            echo "TT C: ".$totComp."<br>";
         }
 
-        echo $textoAcao;
+        //echo $textoAcao;
     ?>
     
 </body>
