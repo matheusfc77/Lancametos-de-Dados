@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <?php
-
-    $tituloPagina = "Lançador de Dados - V2";
+    $tituloPagina = "Lançador de Dados - V3";
     $titulo = "Lançador de Dados";
     $paragrafo1 = 
         "Teste sua sorte com os dados! Só não vale trapacear!";
-    $textoAcao = "";
     $dados = array(
+        0 => "imagens/default.png",
         1 => "imagens/l1.png",
         2 => "imagens/l2.png",
         3 => "imagens/l3.png",
@@ -27,7 +26,7 @@
         
     <form method="get">
         <input type="submit" name="button1"
-                value="Lançar os dados!"/>
+            value="Lançar os dados!"/>
     </form>
 
     <?php
@@ -54,8 +53,7 @@
         <h3>Seus Lançamentos</h3>
         
         <div class="box">
-            <img src=
-                <?php echo "\"".$dados[$lancUsuario1]."\""; ?>/>
+            <img src=<?php echo "\"".$dados[$lancUsuario1]."\""; ?>/>
             <p>Dado 1</p>
         </div>
         <div class="box">
@@ -87,12 +85,13 @@
 
     <h2>
         <?php
-            if ($totUsuario > $totComp) 
-                echo "Você Venceu! Parece que está com sorte. Jogue de novo para ganhar mais prêmios!";
-            else if ($totUsuario == $totComp) 
-                echo "Empate! Dessa vez passou perto. Tente de novo para vencer!";
-            else
-                echo "Você perdeu! Não desanime, aposto que os dados serão melhores na próxima!" 
+            if ($totUsuario > 0)
+                if ($totUsuario > $totComp) 
+                    echo "Você Venceu! Parece que está com sorte. Jogue de novo para ganhar mais prêmios!";
+                else if ($totUsuario == $totComp) 
+                    echo "Empate! Dessa vez passou perto. Tente de novo para vencer!";
+                else
+                    echo "Você perdeu! Não desanime, aposto que os dados serão melhores na próxima!" 
         ?>
     </h2>
     
